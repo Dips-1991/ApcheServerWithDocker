@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 #Install the httpd(apche server into the ubuntu)
-RUN yum install httpd -y
+RUN apt install httpd -y
 
 #copy index.html file from local system to /var/www/html folder to render
 COPY index.html /var/www/html/
