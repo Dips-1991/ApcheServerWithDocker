@@ -1,14 +1,15 @@
-#Pull the base image from the Docker hub repository
-FROM ubuntu:latest
+FROM ubuntu
 
-#Install the httpd(apche server into the ubuntu)
-RUN apt install httpd -y
+# File Author / Maintainer
+MAINTAINER Deepak Patil
 
-#copy index.html file from local system to /var/www/html folder to render
+# Update the repository sources list
+RUN apt-get update
+
+# Install and run apache
+RUN apt-get install -y apache2 && apt-get clean
+
 COPY index.html /var/www/html/
 
-#Start the apache server
-CMD [“/usr/sbin/httpd”,” -D”,” FOREGROUND”]
-
-#Expose the port 80 to access the index.html page 
 EXPOSE 80
+CMD apachectl -D FOREGROUND
