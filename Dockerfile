@@ -1,7 +1,7 @@
 //Pull the base image from the Docker hub repository
-FROM centos
+FROM ubuntu:latest
 
-//Install the httpd(apche server into the centos)
+//Install the httpd(apche server into the ubuntu)
 RUN yum install httpd -y
 
 //copy index.html file from local system to /var/www/html folder to render
